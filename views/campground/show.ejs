@@ -1,0 +1,57 @@
+<% include ../partials/header %>
+<div id="show_container">
+    <div id="show_sidebar">
+       <span>YelpCamp</span>
+        <ul id="info_list">
+            <li class="info">info 1</li>
+            <li class="info">info 2</li>
+            <li class="info">info 3</li>
+        </ul>
+    </div>
+    <div id="show_content">
+        <fieldset id="img_fieldset">
+            <div class="show_img">
+            <img src="<%=foundcampground.img%>" alt="campground image" width="100%">
+                                 
+            </div>
+            <div class="show_name">
+            <h3><%=foundcampground.name%></h3>
+            <h4><%=foundcampground.price%></h4>
+             
+            </div>
+            <p><h5><%=foundcampground.description%></h5></p>
+                <em>Posted By </em>
+                <%=foundcampground.author.username%>
+                <% if(currentUser && foundcampground.author.id.equals(currentUser._id)){ %>
+               <span class="edit">
+                   <a href="/campgrounds/<%=foundcampground._id%>/edit">Edit</a>
+                    <form action="/campgrounds/<%=foundcampground._id%>?_method=DELETE" method="POST">
+                        <button id="del">Delete</button>
+                    </form>
+                </span>   
+                <% } %>
+        </fieldset>
+        <fieldset id="comment_fieldset">
+            <span class="comment">
+            <a href="/campgrounds/<%=foundcampground._id%>/comment/new" >Add comment</a>  
+            </span>
+            <%foundcampground.comments.forEach(function(comment){%> 
+                    <strong>
+                        <%= comment.author.username %> 
+                        <span class="time">10days ago</span>
+                    </strong> 
+                    <%=comment.text%>
+                    <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                    <span class="edit">
+                        <a href="/campgrounds/<%=foundcampground._id%>/comment/<%=comment._id%>/edit" class="">Edit</a>
+                        <form action="/campgrounds/<%=foundcampground._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST">
+                            <button id="del">Delete</button>
+                        </form>
+                    </span>
+                    <% } %>
+            <%})%>
+        </fieldset>
+    </div>
+</div>
+
+<%include ../partials/footer%>

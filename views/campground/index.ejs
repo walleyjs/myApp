@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<div id="landcont">
+    <div id="seclandcont">
+        <div id="header">
+            <h1 class="header1">Welcome To YelpCamp!</h1>
+            view our hand picked campgrounds all over the world
+            <span id="anchor1"> 
+                <a href="/campgrounds/new"><h5>Add New Campground</h5></a>
+            </span>
+        </div>
+        <%campgrounds.forEach(function(campground){%>
+        <ul id="images">
+            <li class="image"> <img src="<%=campground.img%>"  alt="camp image" height="190px"></li>
+            <li class="image"><h4><%=campground.name.toUpperCase()%></h4></li>
+            <li><a href="/campgrounds/<%=campground._id %>"><h5>more info</h5></a></li>
+        </ul>
+        <%})%>
+    </div>
+</div>
+<%include ../partials/footer%>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+<div id="formcontainer">
+<div id="formcont">
+    <h1 class="formheader">EDIT</h1>
+    <ul id="form">
+      <form action="/campgrounds/<%=campground_id%>/comment/<%=foundcomment._id%>?_method=PUT" method="POST">
+          <!-- <li><input type="text" placeholder="author" name="author" class="input input1"></li> -->
+            <li><input type="text" value="<%=foundcomment.text%>" name="comment[text]" class="input input2"></li>
+            <li><button class="input input3">submit</button></li>
+        </form>
+        <li><a href="/campgrounds/<%=campground_id%>">Go Back</a></li>
+    </ul>
+</div>
+</div>
+<%include ../partials/footer%>

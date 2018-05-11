@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+<div id="formcontainer">
+<div id="formcont">
+    <h1 class="formheader">Edit <%=foundcampground.name%></h1>
+    <ul id="form">
+      <form action="/campgrounds/<%=foundcampground._id%>?_method=PUT" method="POST">
+          <li><input type="text" name="campshow[name]" class="input input1" value="<%=foundcampground.name%>"</li>
+            <li><input type="text" value="<%=foundcampground.img%>" name="campshow[image]" class="input input2"></li>
+            <li><input type="text" value="<%=foundcampground.description%>" name="campshow[description]" class="input input4"></li>
+            <li><button class="input input3">submit</button></li>
+        </form>
+        <li ><a href="/campgrounds">Go Back</a></li>
+    </ul>
+</div>
+</div>
+<%include ../partials/footer%>

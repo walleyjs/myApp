@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+<div id="formcontainer">
+<div id="formcont">
+    <h1 class="formheader">Create a New Campground</h1>
+    <ul id="form">
+      <form action="/campgrounds" method="POST">
+          <li><input type="text" placeholder="name" name="name" class="input input1"></li>
+            <li><input type="text" placeholder="image url" name="image" class="input input2"></li>
+            <li><input type="text" placeholder="description" name="description" class="input input4"></li>
+            <li><input type="text" placeholder="price" name="price" class="input input4"></li>
+            <li><button class="input input3">submit</button></li>
+        </form>
+        <li ><a href="/campgrounds">Go Back</a></li>
+    </ul>
+</div>
+</div>
+<%include ../partials/footer%>
