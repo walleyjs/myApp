@@ -15,8 +15,8 @@ var indexRoutes = require("./routes/index");
 var seedDB = require("./seeds");
 
 // seedDB(Campground,Comment);
-mongoose.connect("mongodb://WALLEY:WAlley160.@ds119820.mlab.com:19820/yelpapp");
-// mongoose.connect("mongodb://localhost/yelp_camp");
+// mongoose.connect("mongodb://WALLEY:WAlley160.@ds119820.mlab.com:19820/yelpapp");
+mongoose.connect("mongodb://localhost/yelp_camp");
 // mongodb://WALLEY:WAlley160.@ds119820.mlab.com:19820/yelpapp
 // configuring passport//////////
 app.use(require("express-session")({

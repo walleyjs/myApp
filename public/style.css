@@ -144,7 +144,8 @@ li a h5 {
 }
 @keyframes bgimage{
     0%{
-     background-image: url("../imgs/nature1.jpg");  
+     background-image: url("../imgs/nature1.jpg"); 
+     /* transition-duration: 2s;  */
     }
     20% {
      background-image: url("../imgs/naruto1.jpg");

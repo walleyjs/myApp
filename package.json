@@ -1,7 +1,6 @@
 {
   "name": "yelpapp",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -25,5 +24,14 @@
     "start": "node app.js"
   },
   "author": "walley",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walleyjs/myApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/walleyjs/myApp/issues"
+  },
+  "homepage": "https://github.com/walleyjs/myApp#readme",
+  "description": ""
 }

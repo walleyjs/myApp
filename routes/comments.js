@@ -53,7 +53,7 @@ router.get("/:comment_id/edit",middleware.checkCommentOwnership,function (req,re
         if (err) {
             console.log(err);
         } else {
-            res.render("comment/edit", { campground_id:req.params.id,foundcomment:foundcomment });
+            res.render("comment/edit", {campground_id:req.params.id,foundcomment:foundcomment });
         }
     });
     

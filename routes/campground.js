@@ -4,19 +4,36 @@ var router=express.Router();
 var middleware=require("../middleware");
 router.get("/",function (req, res) {
     // console.log(req.user);
-    Campground.find({}, function (err, allCampgrounds, currentUser) {
-        if (err) {
-            console.log(err);
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        Campground.find({name:regex}, function (err, allCampgrounds, currentUser) {
+            if (err) {
+                console.log(err);
 
-        } else {
-            res.render("campground/index", {
-                campgrounds: allCampgrounds,
-                currentUser: req.user
-            });
-            // console.log(allCampgrounds);
-        }
-    });
+            } else {
+                res.render("campground/index", {
+                    campgrounds: allCampgrounds,
+                    currentUser: req.user
+                });
+                // console.log(allCampgrounds);
+            }
+        });
+    } else {
+        Campground.find({}, function (err, allCampgrounds, currentUser) {
+            if (err) {
+                console.log(err);
 
+            } else {
+                res.render("campground/index", {
+                    campgrounds: allCampgrounds,
+                    currentUser: req.user
+                });
+                // console.log(allCampgrounds);
+            }
+        });
+
+    }
+    
 });
 // app.get("/campgrounds/new", function (req, res) {
 //     res.render("form");
@@ -81,4 +98,7 @@ router.delete("/:id",middleware.checkCampgroundownership,function (req,res) {
         }
     });
 });
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 module.exports=router;
